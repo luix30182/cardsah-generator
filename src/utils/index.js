@@ -15,3 +15,8 @@ export const getColor = color => {
 		return '#000';
 	}
 };
+
+export const checkEmpty = p => {
+	p = p.replace(/\s/g, "")
+	return p;
+}

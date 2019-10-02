@@ -10,12 +10,16 @@ export const MenuContainer = styled.div`
 	font-family: Helvetica, 'Roboto Condensed', sans-serif;
 	font-weight: bold;
 	width: 100%;
-	padding: 20px;
 
+
+	h1{
+		margin:0;
+	}
 	form {
 		width: 50%;
 		display: flex;
 		flex-wrap: wrap;
+		padding: 20px;
 	}
 
 	input[type='text'] {
@@ -38,7 +42,7 @@ export const MenuContainer = styled.div`
 		left: 0;
 		width: 0;
 		height: 2px;
-		background-color: #4caf50;
+		background-color: #000;
 		transition: 0.4s;
 	}
 	.effect-1:focus ~ .focus-border {
@@ -47,8 +51,8 @@ export const MenuContainer = styled.div`
 	}
 
 	button {
-		border: 4px solid #3f3f3f;
-		color: #3f3f3f;
+		border: 4px solid #000;
+		color: #000;
 		font-size: 20px;
 		font-family: Helvetica, 'Roboto Condensed', sans-serif;
 		font-weight: bold;
@@ -56,11 +60,10 @@ export const MenuContainer = styled.div`
 		margin-top: 5px;
 		margin-left: 20px;
 		width: 30%;
-		padding: 50px auto;
-		text-decoration: none;
+		background-color: #fff;
 	}
 	button:hover {
-		background-color: #3f3f3f;
+		background-color: #000;
 		-webkit-transition: background-color 200ms linear;
 		-ms-transition: background-color 200ms linear;
 		transition: background-color 200ms linear;
@@ -84,4 +87,23 @@ export const MenuContainer = styled.div`
 		-webkit-transform: scale(0.6);
 		transform: scale(0.6);
 	}
+
+	@media (max-width: 768px) {
+	
+		form{
+			width: 90%;
+			padding: 10px;
+		}
+
+		input[type='text'] {
+			width: 100%;
+		}
+		button{
+			width: 100%;
+			margin-top: 10px;
+			margin-left: 0;
+
+		padding: 0;
+		}
+	  }
 `;

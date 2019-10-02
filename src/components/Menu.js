@@ -1,6 +1,7 @@
 import React from 'react';
 import firebase from '../config/fbConfig';
 import { MenuContainer } from '../styles/MenuStyles';
+import { checkEmpty } from '../utils/index'
 
 class Menu extends React.Component {
 	state = {
@@ -16,25 +17,28 @@ class Menu extends React.Component {
 
 	handleClick = e => {
 		e.preventDefault();
-		document.querySelector('#card').value = '';
+		const currentText = document.querySelector('#card').value;
 
-		firebase
-			.firestore()
-			.collection('cards')
-			.add({
-				text: this.state.text,
-				color: this.state.color
-			})
-			.then(res => {
-				console.log('Carta creada');
-				this.setState({
-					text: '',
-					color: 'white'
+		if (checkEmpty(currentText).length > 0) {
+			firebase
+				.firestore()
+				.collection('cards')
+				.add({
+					text: this.state.text,
+					color: this.state.color
+				})
+				.then(res => {
+					console.log('Carta creada');
+					this.setState({
+						text: '',
+						color: 'white'
+					});
+					currentText = '';
+				})
+				.catch(e => {
+					console.log(e);
 				});
-			})
-			.catch(e => {
-				console.log(e);
-			});
+		}
 	};
 
 	handleColorChange = e => {
