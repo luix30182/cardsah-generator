@@ -17,7 +17,7 @@ class Menu extends React.Component {
 
 	handleClick = e => {
 		e.preventDefault();
-		const currentText = document.querySelector('#card').value;
+		let currentText = document.querySelector('#card').value;
 
 		if (checkEmpty(currentText).length > 0) {
 			firebase
